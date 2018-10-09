@@ -10,47 +10,56 @@ namespace CalculatorApp
 {
     public class Bindings : IBindings
     {
+        public double getInput()
+        {
+
+            double u;
+            while(!double.TryParse(Console.ReadLine(), out u))
+            {
+                Console.WriteLine("Input er ikke gyldigt, venligst indtast gyldtigt tal");
+            }
+            return u;
+        }
+
         public void Call(string id)
 
         {
-            double first;
-        double second;
+
+            double u1;
+            double u2;
 
             switch (id)
             {
                 case "add":
-                    Console.WriteLine(CalculatorLibrary.Calculator.Add());
+                    Console.WriteLine("Indtast første tal: ");
+                    u1 = getInput();
+                    Console.WriteLine("Indtast andet tal: ");
+                    u2 = getInput();
+                    Console.WriteLine("Resultat: "+ CalculatorLibrary.Calculator.Add(u1,u2));
                     break;
 
                 case "sub":
-                    Console.WriteLine(CalculatorLibrary.Calculator.Subtract());
+                    Console.WriteLine("Indtast første tal: ");
+                    u1 = getInput();
+                    Console.WriteLine("Indtast andet tal: ");
+                    u2 = getInput();
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Subtract(u1, u2));
                     break;
 
-                case "something":
-                    string temp = "";
-                    bool running = true;
-                    while (running != false)
-                    {
-                        Console.Write("Please enter anything: ");
-                        temp = Console.ReadLine();
-                        if (temp.Length <= 0)
-                        {
-                            Console.WriteLine("Enter something!");
-
-                        }
-                        else
-                        {
-                            running = false;
-                        }
-                    }
-                    //Console.WriteLine(Functions.DoSomething(temp));
+                case "multiply":
+                    Console.WriteLine("Indtast første tal: ");
+                    u1 = getInput();
+                    Console.WriteLine("Indtast andet tal: ");
+                    u2 = getInput();
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Multiply(u1, u2));
                     break;
 
-
-
-
-                case "another":
-                    //Console.WriteLine(Functions.GetTheAnswerToLifeTheUniverseAndEverything() + "\n");
+                case "divide":
+                    Console.WriteLine("Indtast første tal: ");
+                    u1 = getInput();
+                    Console.WriteLine("Indtast andet tal: ");
+                    u2 = getInput();
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Divide(u1, u2));
                     break;
 
                 default:
