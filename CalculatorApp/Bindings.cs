@@ -4,24 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmartMenuLibrary;
+using CalculatorLibrary;
 
 namespace CalculatorApp
 {
     public class Bindings : IBindings
     {
         public void Call(string id)
+
         {
-
-
+            double first;
+        double second;
 
             switch (id)
             {
-                case "this":
-                    Console.WriteLine(Functions.DoThis());
+                case "add":
+                    Console.WriteLine(CalculatorLibrary.Calculator.Add());
                     break;
 
-                case "that":
-                    Console.WriteLine(Functions.DoThat());
+                case "sub":
+                    Console.WriteLine(CalculatorLibrary.Calculator.Subtract());
                     break;
 
                 case "something":
@@ -41,14 +43,14 @@ namespace CalculatorApp
                             running = false;
                         }
                     }
-                    Console.WriteLine(Functions.DoSomething(temp));
+                    //Console.WriteLine(Functions.DoSomething(temp));
                     break;
 
 
 
 
                 case "another":
-                    Console.WriteLine(Functions.GetTheAnswerToLifeTheUniverseAndEverything() + "\n");
+                    //Console.WriteLine(Functions.GetTheAnswerToLifeTheUniverseAndEverything() + "\n");
                     break;
 
                 default:

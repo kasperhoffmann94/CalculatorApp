@@ -36,7 +36,8 @@
     <Reference Include="CalculatorLibrary">
       <HintPath>..\..\ProgrammeringsProjektUge2\CalculatorLibrary\bin\Debug\CalculatorLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="SmartMenuLibrary">
+    <Reference Include="SmartMenuLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ProgrammeringsProjektUge2\SmartMenuLibrary\bin\Debug\SmartMenuLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />

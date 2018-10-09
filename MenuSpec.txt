@@ -1,0 +1,10 @@
+Calculator Menu
+Tast nummer for menupunkt eller 0 for at afslutte
+Add;add
+Subtract;sub
+Multiply;multiply
+Divide;divide
+Sum;sum
+Minimum;min
+Maximum;max
+Average;ave
