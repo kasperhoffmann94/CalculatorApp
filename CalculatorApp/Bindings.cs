@@ -21,12 +21,36 @@ namespace CalculatorApp
             return u;
         }
 
+
+        public double[] getMultipleInput()
+        {
+            double temp = 0.0;
+            string input;
+            string[] stringToDoubleArray;
+
+            input = Console.ReadLine();
+
+            stringToDoubleArray = input.Split(' ');
+            double[] multipleInput = new double[stringToDoubleArray.Length];
+
+
+
+            for (int i = 0; i < stringToDoubleArray.Length;i++)
+            {
+                multipleInput[i] = int.Parse(stringToDoubleArray[i]);
+            }
+
+            return multipleInput;
+
+
+        }
         public void Call(string id)
 
         {
 
             double u1;
             double u2;
+            
 
             switch (id)
             {
@@ -62,8 +86,25 @@ namespace CalculatorApp
                     Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Divide(u1, u2));
                     break;
 
-                default:
+                case "sum":
+                    Console.WriteLine("Please enter a series of numbers seperated by spaces, for example ´´10 20 12 22 1 2´´");
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Sum(getMultipleInput()));
+                    break;
 
+                case "min":
+                    Console.WriteLine("Please enter a series of numbers seperated by spaces, for example ´´10 20 12 22 1 2´´");
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Minimum(getMultipleInput()));
+                    break;
+
+                case "max":
+                    Console.WriteLine("Please enter a series of numbers seperated by spaces, for example ´´10 20 12 22 1 2´´");
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Maximum(getMultipleInput()));
+                    break;
+
+                case "ave":
+
+                    Console.WriteLine("Please enter a series of numbers seperated by spaces, for example ´´10 20 12 22 1 2´´");
+                    Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Average(getMultipleInput()));
                     break;
 
             }
