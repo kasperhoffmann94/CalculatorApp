@@ -24,25 +24,50 @@ namespace CalculatorApp
 
         public double[] getMultipleInput()
         {
+            
+            bool valdInput = false;
             double temp = 0.0;
             string input;
             string[] stringToDoubleArray;
+            double[] multipleInput = null ;
 
-            input = Console.ReadLine();
+            while (valdInput != true){
 
-            stringToDoubleArray = input.Split(' ');
-            double[] multipleInput = new double[stringToDoubleArray.Length];
+                
+
+                input = Console.ReadLine();
+                stringToDoubleArray = input.Split(' ');
+                multipleInput = new double[stringToDoubleArray.Length];
 
 
 
-            for (int i = 0; i < stringToDoubleArray.Length;i++)
-            {
-                multipleInput[i] = int.Parse(stringToDoubleArray[i]);
+                for (int i = 0; i < stringToDoubleArray.Length; i++)
+                {
+
+
+                    if (input.Length <= 0)
+                    {
+                        Console.WriteLine("Please enter a number");
+                    }
+                    else if (!double.TryParse(stringToDoubleArray[i], out multipleInput[i]))
+                    {
+                        Console.WriteLine("that is not a number, please enter a number ");
+                        break;
+                    }
+
+
+                    Console.ReadLine();
+                    multipleInput[i] = double.Parse(stringToDoubleArray[i]);
+                    valdInput = true;
+                }
+
+              
+
             }
 
             return multipleInput;
 
-
+         
         }
         public void Call(string id)
 
