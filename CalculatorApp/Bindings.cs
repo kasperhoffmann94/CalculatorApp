@@ -50,7 +50,9 @@ namespace CalculatorApp
 
             double u1;
             double u2;
-            
+
+           
+
 
             switch (id)
             {
@@ -105,6 +107,11 @@ namespace CalculatorApp
 
                     Console.WriteLine("Please enter a series of numbers seperated by spaces, for example ´´10 20 12 22 1 2´´");
                     Console.WriteLine("Resultat: " + CalculatorLibrary.Calculator.Average(getMultipleInput()));
+                    break;
+
+
+                default:
+                    Console.WriteLine("That is not a number please enter a number! ");
                     break;
 
             }
