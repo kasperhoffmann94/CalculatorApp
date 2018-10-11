@@ -15,7 +15,7 @@ namespace CalculatorApp
 
             double u;
             while(!double.TryParse(Console.ReadLine(), out u))
-            {
+            { 
                 Console.WriteLine("Input er ikke gyldigt, venligst indtast gyldtigt tal");
             }
             return u;
@@ -25,21 +25,32 @@ namespace CalculatorApp
         public double[] getMultipleInput()
         {
             double temp = 0.0;
-            string input;
+            string input = "";
             string[] stringToDoubleArray;
 
-            input = Console.ReadLine();
+                input = Console.ReadLine();
 
             stringToDoubleArray = input.Split(' ');
             double[] multipleInput = new double[stringToDoubleArray.Length];
 
-
-
-            for (int i = 0; i < stringToDoubleArray.Length;i++)
+            int counter = 0;
+            while (!double.TryParse(Console.ReadLine(), out multipleInput[counter]))
             {
-                multipleInput[i] = int.Parse(stringToDoubleArray[i]);
-            }
+                Console.WriteLine("Input er ikke gyldigt, venligst indtast gyldtigt tal");
 
+                for (int i = 0; i < stringToDoubleArray.Length; i++)
+                {
+                    while(!double.TryParse(input, out multipleInput[i]))
+                    {
+                        Console.WriteLine("Forkert input, venligst kun indtast tal!");
+                    } 
+
+                     multipleInput[i] = int.Parse(stringToDoubleArray[i]);
+                  
+                   
+                }
+                counter++;
+            }
             return multipleInput;
 
 
