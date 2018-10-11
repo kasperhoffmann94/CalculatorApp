@@ -55,8 +55,6 @@ namespace CalculatorApp
                         break;
                     }
 
-
-                    Console.ReadLine();
                     multipleInput[i] = double.Parse(stringToDoubleArray[i]);
                     valdInput = true;
                 }
