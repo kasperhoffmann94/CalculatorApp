@@ -15,7 +15,7 @@ namespace CalculatorApp
 
             double u;
             while(!double.TryParse(Console.ReadLine(), out u))
-            { 
+            {
                 Console.WriteLine("Input er ikke gyldigt, venligst indtast gyldtigt tal");
             }
             return u;
@@ -24,36 +24,50 @@ namespace CalculatorApp
 
         public double[] getMultipleInput()
         {
+            
+            bool valdInput = false;
             double temp = 0.0;
-            string input = "";
+            string input;
             string[] stringToDoubleArray;
+            double[] multipleInput = null ;
+
+            while (valdInput != true){
+
+                
 
                 input = Console.ReadLine();
+                stringToDoubleArray = input.Split(' ');
+                multipleInput = new double[stringToDoubleArray.Length];
 
-            stringToDoubleArray = input.Split(' ');
-            double[] multipleInput = new double[stringToDoubleArray.Length];
 
-            int counter = 0;
-            while (!double.TryParse(Console.ReadLine(), out multipleInput[counter]))
-            {
-                Console.WriteLine("Input er ikke gyldigt, venligst indtast gyldtigt tal");
 
                 for (int i = 0; i < stringToDoubleArray.Length; i++)
                 {
-                    while(!double.TryParse(input, out multipleInput[i]))
-                    {
-                        Console.WriteLine("Forkert input, venligst kun indtast tal!");
-                    } 
 
-                     multipleInput[i] = int.Parse(stringToDoubleArray[i]);
-                  
-                   
+
+                    if (input.Length <= 0)
+                    {
+                        Console.WriteLine("Please enter a number");
+                    }
+                    else if (!double.TryParse(stringToDoubleArray[i], out multipleInput[i]))
+                    {
+                        Console.WriteLine("that is not a number, please enter a number ");
+                        break;
+                    }
+
+
+                    Console.ReadLine();
+                    multipleInput[i] = double.Parse(stringToDoubleArray[i]);
+                    valdInput = true;
                 }
-                counter++;
+
+              
+
             }
+
             return multipleInput;
 
-
+         
         }
         public void Call(string id)
 
